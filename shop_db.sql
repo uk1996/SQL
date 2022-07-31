@@ -42,7 +42,7 @@ INSERT INTO product (product_name, cost, make_date, company, amount) VALUE('삼�
 UPDATE member SET member_addr='영국 런던' WHERE member_id='carry';
 
 -- 데이터 삭제
-DELETE FROM member WHERE(member_id='carry');
+DELETE FROM member WHERE member_id='carry';
 
 -- 회원 테이블의 모든행, 모든열 조회
 SELECT * FROM member;
