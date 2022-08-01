@@ -52,3 +52,26 @@ SELECT member_name, member_addr FROM member;
  
 -- 이름이 아이유인 회원의 모든열을 조회
 SELECT * FROM member WHERE member_name='아이유';
+
+-- member 테이블의 member_name 열에 인덱스를 지정
+CREATE INDEX idx_member_name ON member(member_name);
+
+-- member 뷰 생성
+CREATE VIEW member_view
+AS
+	SELECT * FROM member;
+    
+-- 스토어드 프로시저 생성
+DELIMITER //
+CREATE PROCEDURE myProc() -- 스토어드 프로시저 이름 지정
+BEGIN
+	SELECT * FROM member WHERE member_name = '나훈아';
+    SELECT * FROM product WHERE product_name = '삼각김밥';
+END //
+DELIMITER ;
+
+-- myProc 스토어드 프로시저 호출
+CALL myProc();
+
+-- myProc 스토어드 프로시저 삭제
+DROP PROCEDURE myProc;
