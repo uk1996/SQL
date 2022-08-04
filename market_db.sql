@@ -46,6 +46,32 @@ INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 1);
 INSERT INTO buy VALUES(NULL, 'APN', '혼공SQL', '서적', 15, 1);
 INSERT INTO buy VALUES(NULL, 'MMU', '지갑', NULL, 30, 4);
 
+-- member 테이블 모든 열 조회(2가지 방법)
+USE market_db;
 SELECT * FROM member;
-SELECT * FROM buy;
 
+SELECT * FROM market_db.member;
+
+-- member 테이블 mem_name 조회
+SELECT mem_name FROM member;
+
+-- member 테이블 addr, debut_date, mem_name 조회
+SELECT addr, debut_date, mem_name FROM member;
+
+-- 열 이름 별칭 지정
+SELECT addr, debut_date "데뷔 날짜", mem_name FROM member;
+
+-- member 테이블에서 mem_name이 블랙핑크인 데이터 조회
+SELECT * FROM member WHERE mem_name='블랙핑크';
+
+-- member 테이블에서 member_number이 4인 데이터 조회
+SELECT * FROM member WHERE mem_number=4;
+
+-- member 테이블에서 height가 162 이하인 데이터 조회
+SELECT * FROM member WHERE height <= 162;
+
+-- member 테이블에서 height가 165 이상 이면서 mem_number가 6 초과인 데이터 조회
+SELECT * FROM member WHERE height >= 165 AND mem_number > 6;
+
+-- member 테이블에서 height가 165 이상 이거나 mem_number가 6 초과인 데이터 조회
+SELECT * FROM member WHERE height >= 165 OR mem_number > 6;
