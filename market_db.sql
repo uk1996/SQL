@@ -75,3 +75,17 @@ SELECT * FROM member WHERE height >= 165 AND mem_number > 6;
 
 -- member 테이블에서 height가 165 이상 이거나 mem_number가 6 초과인 데이터 조회
 SELECT * FROM member WHERE height >= 165 OR mem_number > 6;
+
+-- member 테이블에서 height가 163~165인 회원 조회
+SELECT * FROM member WHERE height >= 163 AND height <=165;
+SELECT * FROM member WHERE height BETWEEN 163 AND 165;
+
+-- 경기, 전남, 경남 중 한곳에 사는 회원 조회
+SELECT * FROM member WHERE addr ='경기' OR addr ='전남' OR addr ='경남';
+SELECT * FROM member WHERE addr in ('경기', '전남', '경남');
+
+-- 이름의 첫글자가 '우'로 시작하는 회원 조회
+SELECT * FROM member WHERE mem_name LIKE '우%';
+
+-- 이름의 앞 두글자는 상관없고, 뒤는 '핑크'인 회원을 검색
+SELECT * FROM member WHERE mem_name LIKE '__핑크';
