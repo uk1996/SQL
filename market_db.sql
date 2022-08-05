@@ -82,7 +82,7 @@ SELECT * FROM member WHERE height BETWEEN 163 AND 165;
 
 -- 경기, 전남, 경남 중 한곳에 사는 회원 조회
 SELECT * FROM member WHERE addr ='경기' OR addr ='전남' OR addr ='경남';
-SELECT * FROM member WHERE addr in ('경기', '전남', '경남');
+SELECT * FROM member WHERE addr IN ('경기', '전남', '경남');
 
 -- 이름의 첫글자가 '우'로 시작하는 회원 조회
 SELECT * FROM member WHERE mem_name LIKE '우%';
