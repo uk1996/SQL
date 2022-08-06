@@ -89,3 +89,7 @@ SELECT * FROM member WHERE mem_name LIKE '우%';
 
 -- 이름의 앞 두글자는 상관없고, 뒤는 '핑크'인 회원을 검색
 SELECT * FROM member WHERE mem_name LIKE '__핑크';
+
+-- 서브 쿼리(에이핑크의 height보다 height큰 회원 검색)
+SELECT mem_name, height FROM member 
+	WHERE height > (SELECT height FROM member WHERE mem_name='에이핑크');
