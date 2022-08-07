@@ -93,3 +93,38 @@ SELECT * FROM member WHERE mem_name LIKE '__핑크';
 -- 서브 쿼리(에이핑크의 height보다 height큰 회원 검색)
 SELECT mem_name, height FROM member 
 	WHERE height > (SELECT height FROM member WHERE mem_name='에이핑크');
+    
+-- 데뷔일자가 빠른 순으로 출력
+SELECT * FROM member
+	ORDER BY debut_date;
+
+-- 데뷔일자가 늦은 순으로 출력
+SELECT * FROM member
+	ORDER BY debut_Date DESC;
+
+-- 키가 164 이상인 회원들을 키가 큰 순서대로 출력
+SELECT * FROM member
+	WHERE height >= 164
+    ORDER BY height DESC;
+
+-- 키가 164 이상인 회원들을 키가 큰 순서대로 출력,키가 같으면 데뷔일자가 빠른 순서로 출력
+SELECT * FROM member
+	WHERE height >= 164
+    ORDER BY height DESC, debut_date ASC;
+    
+-- 회원테이블의 앞의 3건의 데이터만 출력
+SELECT * FROM member
+	LIMIT 3;
+    
+-- 데뷔일자가 빠른 회원 3건의 데이터 출력
+SELECT * FROM member
+	ORDER BY debut_date
+    LIMIT 3;
+    
+-- 평균키가 큰순으로 정렬하여, 3번째 부터 2건만 조회
+SELECT * FROM member
+	ORDER BY height DESC
+    LIMIT 3, 2;
+
+-- 중복 데이터를 제거하여 주소를 출력
+SELECT DISTINCT addr FROM member;
