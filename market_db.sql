@@ -128,3 +128,19 @@ SELECT * FROM member
 
 -- 중복 데이터를 제거하여 주소를 출력
 SELECT DISTINCT addr FROM member;
+
+-- 각 회원별로 구매한 개수를 합쳐서 출력
+SELECT mem_id "회원 아이디", SUM(amount) "총 구매 개수" 
+	FROM buy GROUP BY mem_id;
+    
+-- 각 회원 별로 구매한 금액의 총합 출력
+SELECT mem_id "회원 아이디", SUM(price * amount) "총 구매 금액" 
+	FROM buy GROUP BY mem_id;
+
+-- 각 회원이 한번 구매시 평균 몇 개를 구매했는지 출력
+SELECT mem_id, AVG(amount) 
+	FROM buy
+	GROUP BY mem_id;
+    
+-- 연락처가 있는 회원의 수 출력
+SELECT COUNT(phone1) "연락처가 있는 회원의 수" FROM member;
