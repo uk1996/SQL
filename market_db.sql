@@ -144,3 +144,10 @@ SELECT mem_id, AVG(amount)
     
 -- 연락처가 있는 회원의 수 출력
 SELECT COUNT(phone1) "연락처가 있는 회원의 수" FROM member;
+
+-- 총 구매 금액이 1000 이상인 회원을 검색 내림차순으로 정렬
+SELECT mem_id, SUM(price*amount) "총 구매 금액" 
+	FROM buy
+    GROUP BY mem_id
+    HAVING SUM(price*amount) > 1000
+    ORDER BY SUM(price*amount) DESC;
