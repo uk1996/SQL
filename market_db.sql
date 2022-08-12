@@ -151,3 +151,19 @@ SELECT mem_id, SUM(price*amount) "총 구매 금액"
     GROUP BY mem_id
     HAVING SUM(price*amount) > 1000
     ORDER BY SUM(price*amount) DESC;
+    
+-- toy 테이블 생성
+CREATE TABLE toy
+(toy_id INT NOT NULL PRIMARY KEY,
+ toy_name CHAR(4) NOT NULL,
+ price INT
+);
+
+-- toy 테이블에 데이터 삽입
+INSERT INTO toy VALUES (1, '우디', 2500);
+
+-- toy 테이블에 데이터 일부만 삽입
+INSERT INTO toy (toy_id, toy_name) VALUES (2, '버즈');
+
+-- toy 테이블에 열의 순서를 바꿔서 입력
+INSERT INTO toy (toy_name, price, toy_id) VALUES ('레고', 10000, 3);
