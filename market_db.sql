@@ -167,3 +167,37 @@ INSERT INTO toy (toy_id, toy_name) VALUES (2, '버즈');
 
 -- toy 테이블에 열의 순서를 바꿔서 입력
 INSERT INTO toy (toy_name, price, toy_id) VALUES ('레고', 10000, 3);
+
+-- toy2 테이블 생성(AUTO_INCREMENT 사용)
+CREATE TABLE toy2(
+	toy_id INT AUTO_INCREMENT PRIMARY KEY,
+    toy_anme CHAR(4) NOT NULL,
+    price INT
+);
+
+-- AUTO_INCREMENTT 확인
+INSERT INTO toy2 VALUES (NULL, '레고', 2000);
+INSERT INTO toy2 VALUES (NULL, '렉스', 1000);
+INSERT INTO toy2 VALUES (NULL, '슬링키', 5000);
+SELECT * FROM toy2;
+
+-- 마지막 toy_id 확인
+SELECT LAST_INSERT_ID();
+
+-- AUTO_INCREMENT를 100부터 시작하도록 변경
+ALTER TABLE toy2 AUTO_INCREMENT=100;
+INSERT INTO toy2 VALUES (NULL, '에그', 2000);
+SELECT * FROM toy2;
+
+-- toy_id 가 3씩 증가하도록 변경
+SET @@auto_increment_increment=3;
+
+-- auto_increment_increment 값 확인
+SELECT @@auto_increment_increment;
+
+-- 전체 시스템 변수 확인하기
+SHOW GLOBAL VARIABLES;
+
+-- 데이터 3개를 한줄로 입력하기
+INSERT INTO toy2 VALUES (NULL, '토마스', 3000), (NULL, '제임스', 1700), (NULL, '고든', 3000);
+SELECT * FROM toy2;
