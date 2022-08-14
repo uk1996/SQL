@@ -201,3 +201,22 @@ SHOW GLOBAL VARIABLES;
 -- 데이터 3개를 한줄로 입력하기
 INSERT INTO toy2 VALUES (NULL, '토마스', 3000), (NULL, '제임스', 1700), (NULL, '고든', 3000);
 SELECT * FROM toy2;
+
+-- world db city 테이블 데이터 개수 확인
+SELECT COUNT(*) FROM world.city;
+
+-- world db city 테이블 구조 확인
+DESC world.city;
+
+-- world db city 테이블 데이터 5개 확인
+SELECT * FROM world.city LIMIT 5;
+
+-- market_db city_popul 테이블 생성
+CREATE TABLE market_db.city_popul (city_name CHAR(35), population INT);
+
+-- world db city의 데이터를 market_db city_popul 테이블에 삽입
+INSERT INTO city_popul 
+	SELECT Name, Population FROM world.city;
+
+-- 생성된 데이터 개수 확인
+SELECT COUNT(*) FROM city_popul;
