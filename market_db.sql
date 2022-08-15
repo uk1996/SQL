@@ -232,3 +232,8 @@ UPDATE city_popul
 	SET city_name='뉴욕', population=0
 	WHERE city_name='NEW York';
 SELECT * FROM city_popul WHERE city_name='뉴욕';
+
+-- 인구 단위를 만 단위로 변경
+UPDATE city_popul
+	SET population = population / 10000;
+SELECT * FROM city_popul LIMIT 5;
