@@ -220,3 +220,15 @@ INSERT INTO city_popul
 
 -- 생성된 데이터 개수 확인
 SELECT COUNT(*) FROM city_popul;
+
+-- 도시이름을 Seoul에서 서울로 변경
+UPDATE city_popul
+	SET city_name = '서울'
+    WHERE city_name = 'Seoul';
+SELECT * FROM city_popul WHERE city_name='서울';
+
+-- 한꺼번에 여러열의 값을 변경
+UPDATE city_popul
+	SET city_name='뉴욕', population=0
+	WHERE city_name='NEW York';
+SELECT * FROM city_popul WHERE city_name='뉴욕';
