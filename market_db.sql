@@ -237,3 +237,10 @@ SELECT * FROM city_popul WHERE city_name='뉴욕';
 UPDATE city_popul
 	SET population = population / 10000;
 SELECT * FROM city_popul LIMIT 5;
+
+-- city_name이 New로 시작하는 데이터 조회
+SELECT * FROM city_popul WHERE city_name LIKE 'New%';
+
+-- city_name이 New로 시작하는 데이터 인구 많은 상위 5개 삭제
+DELETE FROM city_popul WHERE city_name LIKE 'New%' ORDER BY population DESC LIMIT 5;
+SELECT * FROM city_popul WHERE city_name LIKE 'New%' ORDER BY population DESC;
