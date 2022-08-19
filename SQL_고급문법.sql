@@ -25,6 +25,6 @@ CREATE TABLE movie (
     movie_director VARCHAR(20), -- 가변 길이 문자열(최대 16383자)
     movie_star VARCHAR(20),
     movie_script LONGTEXT, -- 대량의 텍스트(최대 약 42억자 까지 지정 가능, ex> 영화 자막) / TEXT: 최대 65535자
-    moive_film LONGBLOB -- BLOB: Binary Long Object => 글자가 아닌 이미지, 동영상등의 데이터
+    moive_film LONGBLOB -- BLOB: Binary Long Object => 글자가 아닌 이미지, 동영상등의 데이터(Binary Data)
     -- LONGTEXT 및 LONGBLOB로 설정하면 각 데이터는 최대 4GB까지 입력할 수 있음.
 );
