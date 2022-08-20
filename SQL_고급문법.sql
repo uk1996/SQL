@@ -28,3 +28,12 @@ CREATE TABLE movie (
     moive_film LONGBLOB -- BLOB: Binary Long Object => 글자가 아닌 이미지, 동영상등의 데이터(Binary Data)
     -- LONGTEXT 및 LONGBLOB로 설정하면 각 데이터는 최대 4GB까지 입력할 수 있음.
 );
+
+-- 실수형
+	-- FLOAT: 소수점 아래 7자리까지 표현(4Byte)
+    -- DOUBLE: 소수점 아래 15자리까지 표현(8Byte)
+
+-- 날짜형
+	-- DATE: 날짜만 저장(YYYY-mm-dd)
+    -- TIME: 시간만 저장(HH:MM:SS)
+    -- DATETIME: 날짜와 시간 모두 저장(YYYY-mm-dd HH:MM:SS)
