@@ -55,3 +55,31 @@ SELECT @txt, mem_name FROM member WHERE height > @height;
 SET @count = 3;
 PREPARE mySQL FROM 'SELECT mem_name, height FROM member ORDER BY height LIMIT ?';
 EXECUTE mySQL USING @count;
+
+-- 데이터 형 변환(type conversion)
+	-- 명시적인 형 변환(explict conversion): 직접 함수수를 사용해서 변환
+    -- 암시적인 형 변환(implict conversion): 별도의 지시 없이 자연스럽게 변환
+
+-- 명시적인 형 변환: CAST(), CONVERT()
+	-- CAST(값 AS 데이터형식 [ (길이) ])
+    -- CAST(값, 데이터형식 [ (길이) ])
+    -- 변환할 수 있는 데이터 형식: CHAR, SIGNED(부호가 있는 정수), UNSIGNED(부호가 없는 정수), DATE, TIME, DATETIME
+	SELECT CAST(AVG(price) AS UNSIGNED) '평균 가격' FROM buy;
+	-- or
+	SELECT CONVERT(AVG(price), UNSIGNED) '평균 가격' FROM buy;
+
+	-- 다양한 구분자를 날짜형으로 변경
+	SELECT CAST('2022$08$22' AS DATE);
+    SELECT CAST('2022/08/22' AS DATE);
+    SELECT CAST('2022%08%22' AS DATE);
+    SELECT CAST('2022@08@22' AS DATE);
+    
+    -- 결과를 원하는 형태로 표현할 때도 사용 가능
+    SELECT num, CONCAT(CAST(price AS CHAR), 'X', CAST(amount AS CHAR), '=') '가격X수량', price*amount '구매액'
+		FROM buy;
+
+-- 암시적인 형 변환: CAST()나 CONVERT() 함수를 사용하지 않고도 자연스럽게 형이 변환
+SELECT '100' + '200';
+SELECT CONCAT(100, 200);
+SELECT 100 + '200';
+SELECT CONCAT('100', 200);
