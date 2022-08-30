@@ -83,3 +83,26 @@ SELECT '100' + '200';
 SELECT CONCAT(100, 200);
 SELECT 100 + '200';
 SELECT CONCAT('100', 200);
+
+-- 내부조인: 두 테이블에 모두 있는 내용만 출력
+-- 내부조인 형식
+	-- SELECT <열 목록>
+	-- FROM <첫번째 테이블>
+	--  	INNER JOIN <두 번째 테이블>
+    --  	ON <조인될 조건>
+    -- [WHERE 검색 조건]
+    
+	-- 구매 테이블에서 GRL 아이디를 이용하여 회원 테이블과 조인하여 아이디/이름/구매물품/주소/연락처등을 검색
+    USE market_db;
+    SELECT buy.mem_id, mem_name, prod_name, addr, CONCAT(phone1, phone2)
+		FROM buy
+			INNER JOIN member
+            ON buy.mem_id = member.mem_id
+		WHERE buy.mem_id = 'GRL';
+        
+	-- 테이블 이름에 별칭을 사용
+    SELECT B.mem_id, M.mem_name, B.prod_name, M.addr, CONCAT(M.phone1, M.phone2)
+		FROM buy B
+			INNER JOIN member M
+            ON B.mem_id = M.mem_id
+		WHERE B.mem_id = 'GRL';
