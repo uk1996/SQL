@@ -106,3 +106,9 @@ SELECT CONCAT('100', 200);
 			INNER JOIN member M
             ON B.mem_id = M.mem_id
 		WHERE B.mem_id = 'GRL';
+	
+    -- 구매한 적이 있는 회원의 아이디, 이름, 주소 조회
+    SELECT DISTINCT B.mem_id, M.mem_name, M.addr
+		FROM buy B
+			INNER JOIN member M
+            ON B.mem_id = M.mem_id;
