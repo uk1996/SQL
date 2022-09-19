@@ -1,2 +1,2 @@
 # SQL
-MySQL
+MySQL 학습 내용
