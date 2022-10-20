@@ -1,2 +1,2 @@
 # SQL
-MySQL 학습 내용
+MySQL practice
